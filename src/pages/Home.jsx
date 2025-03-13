@@ -20,7 +20,7 @@ const MyComponent = () => {
           Upgrade your style with trendy clothing, cutting-edge electronics, and
           timeless jewelry – all in one place.
         </p>
-        <button><NavLink to="new">Discover More</NavLink></button>
+        <button><NavLink to="discover">Discover More</NavLink></button>
       </div>
     </div>
     <h1 className="home-title">All Products</h1>
