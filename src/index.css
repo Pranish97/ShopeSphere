@@ -129,14 +129,35 @@ button:hover {
   gap: 50px;
 }
 
-.home-links a {
-  text-decoration: none;
-  color: black;
+.category-type {
+  height: 34px;
+  padding: 6px 26px;
+  font-style: normal;
   font-weight: 500;
-  transition: color 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFEAD0;
+  color: #4D4D4D;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.all-products-container {
+.category-type:hover {
+  color: #FFEAD0;
+}
+
+.category-type:focus {
+  outline: none;
+}
+
+.category-type.selected {
+  color: #FFEAD0;
+}
+
+.category-type:hover, .category-type.selected {
+  background-color: #c29865;
+}
+
+.products-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -148,53 +169,7 @@ button:hover {
   padding: 20px;
 }
 
-.men-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80%;
-  max-width: 1400px;
-  margin: auto;
-  gap: 20px;
-  padding: 20px;
-}
 
-.women-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80%;
-  max-width: 1400px;
-  margin: auto;
-  gap: 20px;
-  padding: 20px;
-}
-
-.jewellery-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80%;
-  max-width: 1400px;
-  margin: auto;
-  gap: 20px;
-  padding: 20px;
-}
-
-.electronic-container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80%;
-  max-width: 1400px;
-  margin: auto;
-  gap: 20px;
-  padding: 20px;
-}
 
 .product-card {
   width: 300px; 
@@ -216,7 +191,7 @@ button:hover {
 
 .product-card a{
   text-decoration: none;
-  color: #c29865;
+  color: black;
 }
 
 
@@ -272,7 +247,7 @@ button:hover {
   justify-content: flex-start;
   gap: 10px;
   max-width: 400px;
-  margin-top: 100px;
+  margin-top: 0px;
   margin-left: 90px;
 }
 

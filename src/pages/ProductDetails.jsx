@@ -1,9 +1,10 @@
 import React, {  useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
+  const location = useLocation()
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -13,13 +14,16 @@ const ProductDetails = () => {
       });
   }, [id]);
 
+  const search = location.state?.search || ""
+  const category = location.state?.category || ""
+
   
-  console.log(productData)
+  console.log(location)
   
   const productDetailELem = productData ? (
     <div className="product-detail-container">
-      <NavLink to=".." relative="path" className="back-link">
-        Back
+      <NavLink to={`..${search}`} relative="path" className="back-link">
+        Back to {category.charAt(0).toUpperCase() + category.slice(1)} Products
       </NavLink>
       <div className="product-detail-box">
         <img
