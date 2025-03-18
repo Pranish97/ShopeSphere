@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
 import BackgroundImg from "../assets/images/background.jpg";
-import { Link, NavLink, Outlet, useSearchParams } from "react-router-dom";
+import { Link, NavLink, useLoaderData, useSearchParams } from "react-router-dom";
+import { getProducts } from "../api"
+
+export  function loader(){
+    return getProducts()
+}
 
 const MyComponent = () => {
-    const [products, setProducts] = useState([])
+    const products = useLoaderData()
     const [searchParams , setSearchParams] = useSearchParams()
     const categoryFilter = searchParams.get("category")
 
-    const activeStyle={
-        "color": "#c29865",
-        "textDecoration":"underline",
-        
-    }
-
-    useEffect(()=> { 
-        fetch("https://fakestoreapi.com/products")
-        .then(res =>res.json())
-        .then(data=> setProducts(data))
-    }, [])
 
     const displayProducts = categoryFilter ? 
     products.filter(product => product.category === categoryFilter) : 
