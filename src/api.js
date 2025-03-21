@@ -10,3 +10,16 @@ export async function getProducts() {
     const data = await res.json()
     return data
 }
+
+export async function getProductsID(id) {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`)
+    if (!res.ok) {
+        throw {
+            message: "Failed to fetch Products", 
+            statusText: res.statusText,
+            status: res.status
+        }
+    }
+    const data = await res.json()
+    return data
+}

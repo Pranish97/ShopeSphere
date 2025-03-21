@@ -2,7 +2,7 @@ import BackgroundImg from "../assets/images/background.jpg";
 import { Link, NavLink, useLoaderData, useSearchParams } from "react-router-dom";
 import { getProducts } from "../api"
 
-export  function loader(){
+export function loader(){
     return getProducts()
 }
 

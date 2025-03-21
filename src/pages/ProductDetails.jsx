@@ -1,24 +1,22 @@
 import React, {  useEffect, useState } from "react";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { NavLink, useLoaderData, useLocation, useParams } from "react-router-dom";
+import { getProductsID } from "../api";
+
+
+export async function loader({request}){
+  const id = new URL(request.url).pathname
+  return getProductsID(id)
+}
 
 const ProductDetails = () => {
-  const { id } = useParams();
-  const [productData, setProductData] = useState(null);
   const location = useLocation()
+  const productData = useLoaderData()
 
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProductData(data);
-      });
-  }, [id]);
 
   const search = location.state?.search || ""
   const category = location.state?.category || ""
 
   
-  console.log(location)
   
   const productDetailELem = productData ? (
     <div className="product-detail-container">
